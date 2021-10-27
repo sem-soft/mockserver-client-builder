@@ -1,0 +1,18 @@
+{
+    "extends": [
+        "airbnb-base",
+        "airbnb-typescript/base"
+    ],
+    "parserOptions": {
+      "project": "./tsconfig.eslint.json"
+    },
+    "rules": {
+        "max-len": [
+            "error",
+            {
+                "code": 100,
+                "comments": 140
+            }
+        ]
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "noImplicitAny": false,
+        "noEmitOnError": true,
+        "declaration": false,
+        "strict": true,
+        "removeComments": true,
+        "sourceMap": false,
+        "skipLibCheck": true,
+    },
+    "include": [
+        "src",
+        "tests"
+    ]
+}
