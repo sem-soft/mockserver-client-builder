@@ -1,5 +1,6 @@
 {
   "name": "mockserver-client-builder",
+  "version": "0.0.1-beta.1",
   "description": "Powerful mockserver client wrapper based on builders with expectation, request matcher and action builders in TypeScript notation",
   "keywords": [
     "mockserver",
