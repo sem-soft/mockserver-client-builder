@@ -34,7 +34,7 @@ client(config)
   .mockSimpleResponse('/simple-mock-request', { music: 'Rock' }, 418);
 ```
 
-## Running MockServer as a Docker Compose service
+## Running MockServer in the Docker
 
 For running MockServer in Docker for local usage you can apply 
 this [docker-compose.yml](./docker-compose.yml).
@@ -44,12 +44,16 @@ see [this](https://www.mock-server.com/where/docker.html) article.
 
 ## Usage examples
 
-With installed NPM package and local MockServer
-you can work with [some examples](./examples).
+After installing this NPM-package and setup local MockServer
+you can try this [examples](./examples).
 
-After writes some scenarios run the compiled js with nodejs CLI:
+To run some scenario use nodejs CLI for compiled js.
 
 ```shell
+$ eslint . --ext .ts
+...
+$ tcs --build
+...
 nodejs ./lib/expectations/complex-expectation.js
 ```
 
