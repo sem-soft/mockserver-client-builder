@@ -4,15 +4,15 @@ import RequestMatcherBuilder from './builders/RequestMatcherBuilder';
 import ResponseActionBuilder from './builders/actions/ResponseActionBuilder';
 import ForwardActionBuilder from './builders/actions/ForwardActionBuilder';
 import ExpectationBuilder from './builders/ExpectationBuilder';
-import { MockServerClientConfiguration } from './types';
+import { MockServerConnection } from './types';
 
 /**
  * Facade function for MockServerClientDispatcher
- * @param {MockServerClientConfiguration} configuration
+ * @param {MockServerConnection} configuration
  * @return {MockServerClientDispatcher}
  */
 export function client(
-  configuration: MockServerClientConfiguration,
+  configuration: MockServerConnection,
 ): MockServerClientDispatcher {
   return new MockServerClientDispatcher(MockServerClientHelper.initClient(configuration));
 }
