@@ -39,6 +39,11 @@ export type HttpPathParams = KeyToMultiValue;
 
 export type HttpQueryStringParams = KeyToMultiValue;
 
+export type HttpSchema = 'HTTP' | 'HTTPS';
+
+export type HttpMethod = 'GET' | 'HEAD' | 'POST'
+| 'PUT' | 'DELETE' | 'CONNECT' | 'OPTIONS' | 'TRACE' | 'PATCH';
+
 export type ActionType = {
   httpForward: BasicHttpForwardInterface
 } | {

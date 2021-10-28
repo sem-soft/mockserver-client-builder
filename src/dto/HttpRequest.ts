@@ -8,6 +8,9 @@ import {
   SocketAddress,
 } from '../types';
 
+/**
+ * Implements DTO for Request Matcher
+ */
 export default class HttpRequest implements HttpRequestInterface {
   secure?: boolean;
 

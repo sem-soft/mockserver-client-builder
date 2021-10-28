@@ -14,7 +14,6 @@ import {
 
 /**
  * Implements DTO for Expectation
- * @class
  */
 export default class Expectation implements ExpectationInterface {
   id?: string;

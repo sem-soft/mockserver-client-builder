@@ -1,4 +1,4 @@
-import {
+export {
   KeyToValue,
   KeyToMultiValue,
   Times as BasicTimes,
@@ -18,24 +18,3 @@ import {
   SocketAddress as BasicSocketAddress,
   Expectation as ExpectationInterface,
 } from 'mockserver-client/mockServer';
-
-export {
-  KeyToValue,
-  KeyToMultiValue,
-  BasicTimes,
-  BasicBody,
-  BasicHttpTemplate,
-  BasicHttpClassCallback,
-  BasicHttpError,
-  BasicHttpObjectCallback,
-  BasicHttpOverrideForwardedRequest,
-  BasicTimeToLive,
-  BasicDelay,
-  BasicBodyWithContentType,
-  BasicSocketAddress,
-  HttpRequestInterface,
-  HttpResponseInterface,
-  HttpForwardInterface,
-  ExpectationInterface,
-  ConnectionOptionsInterface,
-};

@@ -7,6 +7,9 @@ import {
   ConnectionOptionsInterface,
 } from '../types';
 
+/**
+ * Implements DTO for Response Action
+ */
 export default class HttpResponse implements HttpResponseInterface {
   delay?: Delay;
 

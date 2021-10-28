@@ -8,8 +8,6 @@ import { MockServerConnection } from './types';
 
 /**
  * Facade function for MockServerClientDispatcher
- * @param {MockServerConnection} configuration
- * @return {MockServerClientDispatcher}
  */
 export function client(
   configuration: MockServerConnection,
@@ -19,7 +17,6 @@ export function client(
 
 /**
  * Facade function for RequestMatcherBuilder
- * @return RequestMatcherBuilder
  */
 export function request(): RequestMatcherBuilder {
   return new RequestMatcherBuilder();
@@ -27,7 +24,6 @@ export function request(): RequestMatcherBuilder {
 
 /**
  * Facade function for ResponseActionBuilder
- * @return ResponseActionBuilder
  */
 export function response(): ResponseActionBuilder {
   return new ResponseActionBuilder();
@@ -35,7 +31,6 @@ export function response(): ResponseActionBuilder {
 
 /**
  * Facade function for ForwardActionBuilder
- * @return ForwardActionBuilder
  */
 export function forward(): ForwardActionBuilder {
   return new ForwardActionBuilder();
@@ -43,7 +38,6 @@ export function forward(): ForwardActionBuilder {
 
 /**
  * Facade function for ExpectationBuilder
- * @return ExpectationBuilder
  */
 export function expectation(): ExpectationBuilder {
   return new ExpectationBuilder();

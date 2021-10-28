@@ -1,12 +1,11 @@
+import { ActionType } from '../../types';
+
 /**
  * Action contract for builders with getAction method
  */
-import { ActionType } from '../../types';
-
 export default interface ActionBuilderInterface {
-
   /**
-     * @return {ActionType} current action type
-     */
+   * Returns builded action for expectation usage
+   */
   getAction(): ActionType;
 }
