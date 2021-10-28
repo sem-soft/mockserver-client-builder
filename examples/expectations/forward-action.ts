@@ -31,4 +31,9 @@ expectationBuilder
   );
 
 client(config)
-  .mockAnyResponse(expectationBuilder);
+  .mockAnyResponse(expectationBuilder)
+  .then((/* value */) => {
+    console.log('OK: /from-forward-location');
+  }, (/* reason */) => {
+    console.log('FAIL: /from-forward-location');
+  });

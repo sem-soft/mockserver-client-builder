@@ -17,6 +17,24 @@ const mockClient = client(config)
     'X-Response-Header-1': ['Response-Header-1'],
   }, {});
 
-mockClient.mockSimpleResponse('/simple-request-mock-1', { music: 'Rock' }, 418);
-mockClient.mockSimpleResponse('/simple-request-mock-2', { music: 'Hard' }, 200);
-mockClient.mockSimpleResponse('/simple-request-mock-3', { music: 'Pop' }, 201);
+mockClient
+  .mockSimpleResponse('/simple-request-mock-1', { music: 'Rock' }, 418)
+  .then((/* value */) => {
+    console.log('OK: /simple-request-mock-1');
+  }, (/* reason */) => {
+    console.log('FAIL: /simple-request-mock-1');
+  });
+mockClient
+  .mockSimpleResponse('/simple-request-mock-2', { music: 'Hard' }, 200)
+  .then((/* value */) => {
+    console.log('OK: /simple-request-mock-2');
+  }, (/* reason */) => {
+    console.log('FAIL: /simple-request-mock-3');
+  });
+mockClient
+  .mockSimpleResponse('/simple-request-mock-3', { music: 'Pop' }, 201)
+  .then((/* value */) => {
+    console.log('OK: /simple-request-mock-3');
+  }, (/* reason */) => {
+    console.log('FAIL: /simple-request-mock-3');
+  });

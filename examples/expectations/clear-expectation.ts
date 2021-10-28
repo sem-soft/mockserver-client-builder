@@ -17,4 +17,9 @@ client(config)
     request().withMethod('GET')
       .withPath('/cities'),
     'ALL',
-  );
+  )
+  .then((/* value */) => {
+    console.log('OK: Clear /cities');
+  }, (/* reason */) => {
+    console.log('FAIL: Clear /cities');
+  });

@@ -23,5 +23,9 @@ client(config)
     request().withMethod('GET')
       .withPath('/callback-request-handler'),
     handler,
-  10,
-  );
+    10,
+  ).then((/* value */) => {
+    console.log('OK: /callback-request-handler');
+  }, (/* reason */) => {
+    console.log('FAIL: /callback-request-handler');
+  });

@@ -6,7 +6,6 @@ import { client } from 'mockserver-client-builder';
  * @see {@link https://www.mock-server.com/mock_server/clearing_and_resetting.html}
  */
 
-
 // Config
 const config = {
   host: 'mockserver-srv',
@@ -15,4 +14,10 @@ const config = {
 };
 
 // Reset all saved expectations in Mockserver
-client(config).reset();
+client(config)
+  .reset()
+  .then((/* value */) => {
+    console.log('OK: Clear All');
+  }, (/* reason */) => {
+    console.log('FAIL: Clear All');
+  });

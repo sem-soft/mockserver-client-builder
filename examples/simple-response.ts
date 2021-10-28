@@ -6,7 +6,6 @@ import { client } from 'mockserver-client-builder';
  * @see {@link https://5-1.mock-server.com/mock_server/mockserver_clients.html}
  */
 
-
 // Config
 const config = {
   host: 'mockserver-srv',
@@ -16,4 +15,9 @@ const config = {
 
 // Simple plain response mock
 client(config)
-  .mockSimpleResponse('/simple-request-mock', { music: 'Rock' }, 418);
+  .mockSimpleResponse('/simple-request-mock', { music: 'Rock' }, 418)
+  .then((/* value */) => {
+    console.log('OK: /simple-request-mock');
+  }, (/* reason */) => {
+    console.log('FAIL: /simple-request-mock');
+  });

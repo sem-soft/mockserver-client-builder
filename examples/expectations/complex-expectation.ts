@@ -76,4 +76,10 @@ const expectationBuilder = expectation()
   .withId('the-on-of-123');
 
 // Send our expectation into mocksever
-client(config).mockAnyResponse(expectationBuilder);
+client(config)
+  .mockAnyResponse(expectationBuilder)
+  .then((/* value */) => {
+    console.log('OK: /cities');
+  }, (/* reason */) => {
+    console.log('FAIL: /cities');
+  });
