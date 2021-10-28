@@ -1,0 +1,17 @@
+version: "3.5"
+
+# Set general setting for services logging
+x-logging-settings: &logging-settings
+  logging:
+    driver: "json-file"
+    options:
+      max-file: "2"
+      max-size: "5m"
+
+services:
+  # Mockserver service configuration
+  mockserver-srv:
+    image: mockserver/mockserver:mockserver-5.11.2
+    <<: *logging-settings
+    ports:
+      - "${MOCKSERVER_PORT:-1090}:1080"
