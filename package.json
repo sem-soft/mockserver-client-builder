@@ -1,6 +1,6 @@
 {
   "name": "mockserver-client-builder",
-  "version": "0.0.1-beta.2",
+  "version": "0.0.1-beta.3",
   "description": "Powerful mockserver client wrapper based on builders with expectation, request matcher and action builders in TypeScript notation",
   "keywords": [
     "mockserver",
@@ -17,15 +17,12 @@
   "license": "BSD-3-Clause",
   "main": "lib/index.js",
   "types": "lib",
-  "files": [
-    "lib"
-  ],
   "scripts": {
-    "build": "tsc --build",
-    "clean": "tsc --build --clean",
+    "build": "rm -rf ./lib && tsc --build",
     "lint": "eslint . --ext .ts",
-    "lint-and-fix": "eslint . --ext .ts --fix",
-    "test": "jest --maxWorkers=1"
+    "lint-n-fix": "eslint . --ext .ts --fix",
+    "test": "jest --maxWorkers=1",
+    "release": "npm run build && cp *.md list && npm publish lib"
   },
   "dependencies": {
     "mockserver-client": "^5"
