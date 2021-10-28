@@ -99,7 +99,7 @@ export type CaCertPemFilePath = BasicCaCertPemFilePath;
 
 export type ContextPath = BasicContextPath;
 
-export interface MockServerClientConfiguration {
+export interface MockServerConnection {
   host: Host,
   port: Port,
   contextPath?: ContextPath,

@@ -1,15 +1,15 @@
 import * as request from 'supertest';
-import { MockServerClientConfiguration } from '../src/types';
+import { MockServerConnection } from '../src/types';
 
 /**
- * @todo Move to env
+ * /app # SCHEMA=http HOST=mockserver-srv PORT=1080 npm run test
  */
-export const schema: string = 'http';
-export const host: string = 'mockserver-srv';
-export const port: number = 1080;
+export const schema: string = process.env.SCHEMA || 'http';
+export const host: string = process.env.HOST || 'mockserver-srv';
+export const port: number = <number>(process.env.PORT || 1080);
 
 // Mockserver configuration object
-export const config: MockServerClientConfiguration = {
+export const config: MockServerConnection = {
   host,
   port,
   tls: false,

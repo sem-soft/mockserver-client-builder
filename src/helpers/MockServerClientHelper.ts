@@ -1,8 +1,8 @@
 import { mockServerClient } from 'mockserver-client';
-import { MockServerClient, MockServerClientConfiguration } from '../types';
+import { MockServerClient, MockServerConnection } from '../types';
 
 export default class MockServerClientHelper {
-  public static initClient(config: MockServerClientConfiguration): MockServerClient {
+  public static initClient(config: MockServerConnection): MockServerClient {
     const {
       host, port, contextPath, tls, caCertPemFilePath,
     } = config;
