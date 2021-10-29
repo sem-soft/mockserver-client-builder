@@ -1,9 +1,27 @@
 # MockServer client wrapper
 
-![Package release](https://badgen.net/github/release/sem-soft/mockserver-client-builder)
+<div align="center">
+    <img src="assets/mockserver-client-builder.png" alt="mockserver-client-builder" width="200"/>
+</div>
 
-Powerful mockserver client wrapper based on builders with expectation, 
-request matcher and action builders in TypeScript notation.
+<div align="center">
+  <a href="https://npmjs.org/package/mockserver-client-builder">
+    <img alt="npm" src="https://img.shields.io/npm/v/mockserver-client-builder.svg" />
+  </a>
+  <a href="https://npmjs.org/package/mockserver-client-builder">
+    <img alt="one dependency only" src="https://badgen.net/bundlephobia/dependency-count/mockserver-client-builder" />
+  </a>
+  <a href="https://npmjs.org/package/mockserver-client-builder">
+    <img alt="types included" src="https://badgen.net/npm/types/mockserver-client-builder" />
+  </a>
+</div>
+
+<div align="center">
+  Powerful mockserver client wrapper based on builders with expectation, request matcher and action builders in TypeScript notation.
+
+  Based around <a href="https://github.com/mock-server/mockserver-client-node">mockserver-client-node</a>.
+</div>
+
 
 ## About
 
