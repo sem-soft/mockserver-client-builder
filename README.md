@@ -20,7 +20,6 @@
   Based around <a href="https://github.com/mock-server/mockserver-client-node">mockserver-client-node</a>.
 </div>
 
-
 ## About
 
 The package provides the ability to program the MockServer in design mode.
@@ -60,9 +59,6 @@ see [this](https://www.mock-server.com/where/docker.html) article.
 
 ## Usage examples
 
-After installing this NPM-package and setup local MockServer
-you can try this [examples](./examples).
-
 To run some scenario use nodejs CLI for compiled js.
 
 ```shell
@@ -70,10 +66,145 @@ $ eslint . --ext .ts
 ...
 $ tcs --build
 ...
-nodejs ./lib/expectations/complex-expectation.js
+$ nodejs ./lib/path/complex-expectation.js
 ```
 
 Now your MockServer is ready to accept requests with expectation responses based on `complex-expectation.js` scenario.
+
+### Example #1. Complex expectation creation
+
+Let's create a new file `complex-expectation.ts` for mock expectation implementation.
+<details>
+  <summary>src/path/complex-expectation.ts</summary>
+
+```typescript
+import {
+  client, expectation, request, response,
+} from 'mockserver-client-builder';
+
+/**
+ * Complex expectation building with some advanced params for request matcher, response and expectation.
+ * @see {@link https://www.mock-server.com/mock_server/creating_expectations.html}
+ */
+
+// Config
+const config = {
+  host: 'mockserver-srv',
+  port: 1080,
+  tls: false,
+};
+
+// Expectation
+const expectationBuilder = expectation()
+// When we send request
+  .when(
+    request()
+      .withMethod('GET')
+      .withPath('/cities')
+      .withQueryStringParameters({
+        'filter[id]': ['11', '12'],
+        code: ['61'],
+      }),
+  )
+// We expect a respond
+  .action(
+    response()
+      .withStatusCode(200)
+      .withBody({
+        items: [
+          {
+            id: '1',
+            name: 'Ростов-на-Дону',
+          },
+          {
+            id: '2',
+            name: 'Москва',
+          },
+          {
+            id: '3',
+            name: 'Таганрог',
+          },
+        ],
+      })
+      .withCookies({
+        session_id: 'Rftre5638jucg93',
+      })
+      .withHeaders({
+        'Content-Type': [
+          'application/json; charset=utf-8',
+        ],
+        'Cache-Control': [
+          'public, max-age=86400',
+        ],
+        'X-Vendor': [
+          'Oleg Chulakov Studio',
+        ],
+      }),
+  )
+// Sets priority of expectation
+  .withPriority(100)
+// After 2 calls the expectation will be cleared
+  .withTimes({
+    remainingTimes: 2,
+  })
+// After 30 seconds the expectation will be deleted
+  .withTimeToLive({
+    timeUnit: 'SECONDS',
+    timeToLive: 30,
+  })
+// Set custom expectation id for simple update (replace)
+  .withId('the-on-of-123');
+
+// Send our expectation into mocksever
+client(config)
+  .mockAnyResponse(expectationBuilder)
+  .then((/* value */) => {
+    console.log('OK: /cities');
+  }, (/* reason */) => {
+    console.log('FAIL: /cities');
+  });
+
+```
+</details>
+
+### Example #2. Clear all expecattions data from mockserver
+
+Let's write a small code in file `reset-all.ts`.
+
+<details>
+  <summary>src/path/reset-all.ts</summary>
+
+```typescript
+import { client } from 'mockserver-client-builder';
+
+/**
+ * Clear & resets all data: logs, expectations.
+ *
+ * @see {@link https://www.mock-server.com/mock_server/clearing_and_resetting.html}
+ */
+
+// Config
+const config = {
+  host: 'mockserver-srv',
+  port: 1080,
+  tls: false,
+};
+
+// Reset all saved expectations in Mockserver
+client(config)
+  .reset()
+  .then((/* value */) => {
+    console.log('OK: Clear All');
+  }, (/* reason */) => {
+    console.log('FAIL: Clear All');
+  });
+
+```
+</details>
+
+### Other examples
+
+See other [examples](./examples) with creation of requests, responses, expectations and also control it in mockserver.
 
 ## Run tests
 
