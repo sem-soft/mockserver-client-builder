@@ -17,3 +17,6 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run build
+
+      - name: Mockserver run in Docker
+      - run: docker-compose up -d
