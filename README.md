@@ -1,5 +1,3 @@
-# MockServer client wrapper
-
 <div align="center">
     <img src="assets/mockserver-client-builder.png" alt="mockserver-client-builder"/>
 </div>
