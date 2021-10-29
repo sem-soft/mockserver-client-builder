@@ -1,0 +1,38 @@
+name: ci-cd-to-npmjs
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - '[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build package
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build
+
+      - name: Mockserver run in Docker
+        run: docker-compose up -d
+
+      - name: Run tests
+        run: npm run test
+        env:
+          HOST: "localhost"
+          PORT: "1090"
+
+      - name: Publish package to NPM registry
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
