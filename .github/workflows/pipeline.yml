@@ -1,8 +1,9 @@
 name: publish-to-npm
 
 on:
-  branches:
-    - feature/github-actions
+  push:
+    branches:
+      - feature/github-actions
 
 jobs:
   main:
