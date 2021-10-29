@@ -1,0 +1,15 @@
+name: publish-to-npm
+
+on:
+  branches:
+    - feature/github-actions
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build package
+        uses: actions/setup-node@v2
