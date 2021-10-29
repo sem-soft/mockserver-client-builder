@@ -6,6 +6,9 @@
   <a href="https://npmjs.org/package/mockserver-client-builder">
     <img alt="npm" src="https://img.shields.io/npm/v/mockserver-client-builder.svg" />
   </a>
+  <a href="https://github.com/sem-soft/mockserver-client-builder/actions">
+    <img alt="build" src="https://img.shields.io/github/workflow/status/sem-soft/mockserver-client-builder/ci-cd-to-npmjs/main.svg" />
+  </a>
   <a href="https://npmjs.org/package/mockserver-client-builder">
     <img alt="one dependency only" src="https://badgen.net/bundlephobia/dependency-count/mockserver-client-builder" />
   </a>
