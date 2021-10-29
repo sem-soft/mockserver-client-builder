@@ -15,7 +15,7 @@
 </div>
 
 <div align="center">
-  Powerful mockserver client wrapper based on builders with expectation, request matcher and action builders in TypeScript notation.
+  Powerful <strong>mockserver client wrapper</strong> based on builders with expectation, request matcher and action builders in TypeScript notation.
 
   Based around <a href="https://github.com/mock-server/mockserver-client-node">mockserver-client-node</a>.
 </div>
