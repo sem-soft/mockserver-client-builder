@@ -22,4 +22,12 @@ jobs:
         run: docker-compose up -d
 
       - name: Run tests
-        run: HOST=localhost PORT=1090 npm run test
+        run: npm run test
+        env:
+          HOST: "localhost"
+          PORT: "1090"
+
+      - name: Publish package to NPM registry
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
