@@ -32,8 +32,14 @@ export default class MockServerClientDispatcher {
    * Setups expectations and responses for them.
    * @todo implements multiple builders as array for input
    */
-  public mockAnyResponse(builder: ExpectationBuilder): Promise<RequestResponse> {
-    return this.client.mockAnyResponse(builder.getExpectation());
+  public mockAnyResponse(
+    builder: ExpectationBuilder | ExpectationBuilder[],
+  ): Promise<RequestResponse> {
+    return this.client.mockAnyResponse(
+      Array.isArray(builder)
+        ? builder.map((b:ExpectationBuilder) => b.getExpectation())
+        : builder.getExpectation(),
+    );
   }
 
   /**
