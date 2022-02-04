@@ -12,17 +12,17 @@ describe('Test requests with forwarding response', () => {
   // Loading the mock-data
   beforeAll(async () => {
     await mockClientDispatcher.mockAnyResponse(
-        expectation()
-            .when(
-                request()
-                    .withMethod('GET')
-                    .withPath('/from-forward-location'),
-            )
-            .action(
-                forward()
-                    .toHost(`${host}:${port}`)
-                    .withScheme('HTTP'),
-            ),
+      expectation()
+        .when(
+          request()
+            .withMethod('GET')
+            .withPath('/from-forward-location'),
+        )
+        .action(
+          forward()
+            .toHost(`${host}:${port}`)
+            .withScheme('HTTP'),
+        ),
     );
   });
 
@@ -34,7 +34,7 @@ describe('Test requests with forwarding response', () => {
   // Tests
   it('Forwarded response', async () => {
     const result = await supertestRequest
-        .get('/from-forward-location');
+      .get('/from-forward-location');
 
     // Stupid test to root of mockserver for 404
     expect(result.statusCode).toEqual(404);
