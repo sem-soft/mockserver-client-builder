@@ -78,7 +78,7 @@ export default class RequestMatcherBuilder {
    * Sets the http request headers
    */
   public withHeaders(headers: HttpHeaders): RequestMatcherBuilder {
-    this.requestMatcher.queryStringParameters = headers;
+    this.requestMatcher.headers = headers;
     return this;
   }
 
